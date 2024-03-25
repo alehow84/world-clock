@@ -7,6 +7,7 @@ body {
     rgb(247, 198, 169) 54.2%,
     rgb(21, 186, 196) 100.3%
   );
+  background-repeat: no-repeat;
 }
 
 h2 {
@@ -44,7 +45,7 @@ i {
 
 .container,
 footer {
-  margin: 8% auto;
+  margin: 4% auto;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.8);
   max-width: 32%;
