@@ -1,3 +1,80 @@
 body {
+  font-family: "Source Sans 3", sans-serif;
   text-align: center;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(253, 239, 132) 0%,
+    rgb(247, 198, 169) 54.2%,
+    rgb(21, 186, 196) 100.3%
+  );
+}
+
+h2 {
+  margin: 0 0 5px;
+}
+
+select {
+  font-size: 110%;
+  width: 60%;
+  padding: 1%;
+}
+input {
+  font-size: 110%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 18%;
+  padding: 1%;
+  background-color: rgb(18, 17, 48);
+  color: white;
+}
+
+a {
+  color: rgb(27, 100, 194);
+  font-size: 110%;
+  text-decoration: dotted;
+}
+
+i {
+  font-size: large;
+  vertical-align: middle;
+}
+
+#city-select {
+  margin-bottom: 20px;
+}
+
+.container,
+footer {
+  margin: 8% auto;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  max-width: 32%;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 1%;
+}
+
+.city,
+.city-main {
+  padding: 0px 20px 30px;
+  margin: 30px 0px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.city:last-child {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.time {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+.time small {
+  font-size: 50%;
+  vertical-align: middle;
+  line-height: 100%;
+}
+.date {
+  opacity: 0.8;
 }
