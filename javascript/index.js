@@ -53,18 +53,6 @@ function updateTime() {
     honoluluElementTime.innerHTML = honoluluElementTimezone.format(
       "HH:mm:ss [<small>]A[</small>]"
     );
-
-    // let singleCityElement = document.querySelector("#single-city");
-    // if (singleCityElement) {
-    //   let singleCityElementDate = singleCityElement.querySelector(".date");
-    //   let singleCityElementTime = singleCityElement.querySelector(".time");
-    //   let singleCityElementTimezone = moment().tz(`${timezoneContainer}`);
-    //   singleCityElementDate.innerHTML =
-    //     singleCityElementTimezone.format("ddd Do MMMM YYYY");
-    //   singleCityElementTime.innerHTML = singleCityElementTimezone.format(
-    //     "HH:mm:ss [<small>]A[</small>]"
-    //   );
-    // }
   }
 }
 
@@ -96,46 +84,12 @@ function changeCity(event) {
   <div class="date">${cityDateInfo.format("ddd Do MMMM YYYY")}</div>
 </div>
 <div class="time">${cityDateInfo.format("HH:mm:ss [<small>]A[</small>]")}</div>
-</div>`;
-}
-
-function resetSelect() {
-  citiesElement.innerHTML = `<div class="city" id="toronto">
-<div>
-  <h2>Toronto <span class="fi fi-ca fis"></span></h2>
-  <div class="date"></div>
 </div>
-<div class="time"></div>
-</div>
-<div class="city" id="norwich">
-<div>
-  <h2>Norwich <span class="fi fi-gb fis"></span></h2>
-  <div class="date"></div>
-</div>
-<div class="time"></div>
-</div>
-<div class="city" id="berlin">
-<div>
-  <h2>Berlin <span class="fi fi-de fis"></span></h2>
-  <div class="date"></div>
-</div>
-<div class="time"></div>
-</div>
-<div class="city" id="honolulu">
-<div>
-  <h2>Honolulu <span class="fi fi-us fis"></span></h2>
-  <div class="date"></div>
-</div>
-<div class="time"></div>
-</div>
-</div>`;
+<a href="/"><i class="fa-solid fa-circle-left"></i> Back to World Clock home</a>`;
 }
 
 let citySelect = document.querySelector("#city-select");
 citySelect.addEventListener("change", changeCity);
-
-let cityReset = document.querySelector("#reset");
-cityReset.addEventListener("click", resetSelect);
 
 updateTime();
 setInterval(updateTime, 1000);
