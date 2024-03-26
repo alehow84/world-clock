@@ -71,6 +71,9 @@ function updateTime() {
 function changeCity(event) {
   let flagRef = "";
   timezoneContainer = event.target.value;
+  if (timezoneContainer === "current") {
+    timezoneContainer = moment.tz.guess();
+  }
   if (timezoneContainer === "Asia/Tokyo") {
     flagRef = "jp";
   } else if (timezoneContainer === "Europe/Copenhagen") {
@@ -79,6 +82,8 @@ function changeCity(event) {
     flagRef = "hu";
   } else if (timezoneContainer === "Atlantic/Reykjavik") {
     flagRef = "is";
+  } else if (timezoneContainer === "Europe/London") {
+    flagRef = "gb";
   }
   let selectedCityName = timezoneContainer.split("/")[1];
   console.log(selectedCityName, "selectedCityName");
