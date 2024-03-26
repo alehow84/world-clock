@@ -28,16 +28,17 @@
       <h1>World Clock <i class="fa-solid fa-globe"></i></h1>
 
       <select name="city-select" id="city-select">
-        <option value="">Select a city...</option>
+        <option selected value="">Select a city...</option>
+        <option value="current">My current location</option>
         <option value="Asia/Tokyo">Tokyo</option>
         <option value="Europe/Copenhagen">Copenhagen</option>
-        <option value="Europe/Budapest">Kotor</option>
+        <option value="Europe/Budapest">Budapest</option>
         <option value="Atlantic/Reykjavik">Reykjavik</option>
-        <input type="reset" />
+        <input type="reset" id="reset" />
       </select>
 
-      <div class="cities">
-        <div class="city-main" id="toronto">
+      <div id="cities">
+        <div class="city" id="toronto">
           <div>
             <h2>Toronto <span class="fi fi-ca fis"></span></h2>
             <div class="date"></div>

@@ -54,12 +54,19 @@ footer {
 }
 
 .city,
-.city-main {
-  padding: 0px 20px 30px;
+.city-single {
   margin: 30px 0px;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
+}
+
+.city {
+  padding: 0px 20px 30px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+}
+
+.city-single {
+  padding: 0px 20px 0px;
 }
 
 .city:last-child {
