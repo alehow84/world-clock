@@ -1,13 +1,13 @@
 body {
-  font-family: "Source Sans 3", sans-serif;
-  text-align: center;
   background: radial-gradient(
     circle at 10% 20%,
     rgb(253, 239, 132) 0%,
     rgb(247, 198, 169) 54.2%,
     rgb(21, 186, 196) 100.3%
   );
-  background-repeat: no-repeat;
+  font-family: "Source Sans 3", sans-serif;
+  text-align: center;
+  height: 900px;
 }
 
 h2 {
