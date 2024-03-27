@@ -1,7 +1,3 @@
-let cityOneElement = document.querySelector("#toronto");
-let citiesElement = document.querySelector("#cities");
-let timezoneContainer = "";
-
 function updateTime() {
   //Toronto
   let torontoElement = document.querySelector("#toronto");
@@ -56,40 +52,55 @@ function updateTime() {
   }
 }
 
-function changeCity(event) {
-  let flagRef = "";
-  timezoneContainer = event.target.value;
-  if (timezoneContainer === "current") {
-    timezoneContainer = moment.tz.guess();
+function updateCity(cityName, timezone, flag) {
+  let currentTime = moment().tz(timezone);
+
+  return `<div class="city" id="selected-city">
+    <div>
+      <h2>${cityName} <span class="fi fi-${flag} fis"></span></h2>
+      <div class="date">${currentTime.format("ddd Do MMMM YYYY")}</div>
+    </div>
+    <div class="time">${currentTime.format(
+      "HH:mm:ss [<small>]A[</small>]"
+    )}</div>
+    </div>
+    <a href="/"><i class="fa-solid fa-circle-left"></i> Back to World Clock home</a>`;
+}
+
+function selectCity(event) {
+  let flagRef = null;
+  let cityTimezone = event.target.value;
+  if (cityTimezone === "current") {
+    cityTimezone = moment.tz.guess();
   }
-  if (timezoneContainer === "Asia/Tokyo") {
+  if (cityTimezone === "Asia/Tokyo") {
     flagRef = "jp";
-  } else if (timezoneContainer === "Europe/Copenhagen") {
+  } else if (cityTimezone === "Europe/Copenhagen") {
     flagRef = "dk";
-  } else if (timezoneContainer === "Europe/Budapest") {
+  } else if (cityTimezone === "Europe/Budapest") {
     flagRef = "hu";
-  } else if (timezoneContainer === "Atlantic/Reykjavik") {
+  } else if (cityTimezone === "Atlantic/Reykjavik") {
     flagRef = "is";
-  } else if (timezoneContainer === "Europe/London") {
+  } else if (cityTimezone === "Europe/London") {
     flagRef = "gb";
   }
-  let selectedCityName = timezoneContainer.split("/")[1];
-  console.log(selectedCityName, "selectedCityName");
 
-  let cityDateInfo = moment().tz(`${timezoneContainer}`);
+  let citiesElement = document.querySelector("#cities");
+  let selectedCityName = cityTimezone.split("/")[1];
 
-  citiesElement.innerHTML = `<div class="city">
-<div>
-  <h2>${selectedCityName} <span class="fi fi-${flagRef} fis"></span></h2>
-  <div class="date">${cityDateInfo.format("ddd Do MMMM YYYY")}</div>
-</div>
-<div class="time">${cityDateInfo.format("HH:mm:ss [<small>]A[</small>]")}</div>
-</div>
-<a href="/"><i class="fa-solid fa-circle-left"></i> Back to World Clock home</a>`;
+  citiesElement.innerHTML = updateCity(selectedCityName, cityTimezone, flagRef);
+
+  setInterval(() => {
+    citiesElement.innerHTML = updateCity(
+      selectedCityName,
+      cityTimezone,
+      flagRef
+    );
+  }, 1000);
 }
 
 let citySelect = document.querySelector("#city-select");
-citySelect.addEventListener("change", changeCity);
+citySelect.addEventListener("change", selectCity);
 
 updateTime();
 setInterval(updateTime, 1000);
