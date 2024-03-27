@@ -88,6 +88,7 @@ function selectCity(event) {
   let citiesElement = document.querySelector("#cities");
   let selectedCityName = cityTimezone.split("/")[1];
 
+  //there is an issue here: works ok when user selects a city for the first time, however on selecting another city, the previous cities info is stored and flicks between the two. The same happens with each additional city
   citiesElement.innerHTML = updateCity(selectedCityName, cityTimezone, flagRef);
 
   setInterval(() => {
